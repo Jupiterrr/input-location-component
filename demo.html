@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>seed-element Demo</title>
+
+  <script src="components/platform/platform.js"></script>
+  <link rel="import" href="components/input-location/input-location.html">
+
+</head>
+<body unresolved>
+
+  
+
+  <template id="receivedTemplate"> 
+    <h2>
+      Received: <code></code>
+      <button onclick="window.location = '?'; return false;">clear</button>
+    </h2>
+    <hr>
+  </template> 
+
+  <script type="text/javascript">
+    if (window.location.search && window.location.search != "") {
+      var urlParams;
+      (window.onpopstate = function () {
+          var match,
+              pl     = /\+/g,  // Regex for replacing addition symbol with a space
+              search = /([^&=]+)=?([^&]*)/g,
+              decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+              query  = window.location.search.substring(1);
+
+          urlParams = {};
+          while (match = search.exec(query))
+             urlParams[decode(match[1])] = decode(match[2]);
+      })();
+
+      var params = JSON.stringify(urlParams);
+      var content = document.getElementById("receivedTemplate").content;
+      var code = content.querySelector("code");
+      code.textContent = params;
+
+      document.body.appendChild(
+        document.importNode(content, true));
+    }
+  </script>
+
+  <p>An example of using <code>&lt;input is="input-location"></code>:</p>
+
+  <code>
+    &lt;form&gt;<br>
+       &emsp;&emsp;&lt;input name='location' is=&quot;input-location&quot; zoom=&quot;10&quot; latitude=&quot;49.012419&quot; longitude=&quot;8.41527&quot;&gt;<br>
+       &emsp;&emsp;&lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;<br>
+    &lt;/form&gt;
+  </code>
+  
+  <br /><br />
+
+  <form name="test" action="?" method="get">
+    <input name='location' is="input-location" zoom="10" latitude="49.012419" longitude="8.41527">
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+  
+
+</body>
+</html>
