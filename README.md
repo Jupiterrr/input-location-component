@@ -1,10 +1,13 @@
 # &lt;input is="input-location"&gt;
 ================
-![image](demo.gif)
 
 A custom input element for selecting a loaction on a map.
 
-[Demo](http://jupiterrr.github.io/input-location-component/demo.html)
+###[Demo](http://jupiterrr.github.io/input-location-component/demo.html)
+
+![image](demo.gif)
+
+
 
 <!--See the [component page](http://jupiterrr.github.io/input-location-component/demo.html) for more information.
 
