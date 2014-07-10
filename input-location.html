@@ -1,0 +1,44 @@
+<link rel="import" href="../google-map/google-map.html">
+
+<polymer-element name="input-location" autocomplete="off" attributes="longitude, latitude, zoom, value, name" extends="input">
+
+  <template>
+    <style>    
+      :host {
+        width: 200px;
+        height: 200px;
+        display: inline-block;
+      }
+      #google_map {
+        display: block;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+    
+    <google-map latitude="{{ +latitude }}" longitude="{{ +longitude }}" zoom="{{ +zoom }}" id="google_map">
+      <google-map-marker longitude="{{ longitude }}" latitude="{{ latitude }}" id="google_map_marker" draggable="true"></google-map-marker>
+    </google-map>
+    <!-- <p>{{ longitude }}, {{ latitude }}, {{zoom}}</p> -->
+  </template>
+
+  <script>
+
+    Polymer('input-location', {
+      observe: {
+        latitude: 'setValue',
+        longitude: 'setValue'
+      },
+
+      domReady: function() {
+        this.value = null;
+      },
+
+      setValue: function() {
+        this.value = this.latitude + "," + this.latitude;
+      }
+    });
+
+  </script>
+
+</polymer-element>

@@ -1,0 +1,21 @@
+{
+  "name": "input-location",
+  "private": true,
+  "version": "0.0.0",
+  "authors": [
+    "Carsten Griesheimer hallo@carstengriesheimer.de"
+  ],
+  "description": "",
+  "keywords": "seed, polymer, web-components, input, form, location, geolocation",
+  "main": "input-location.html",
+  "license": "MIT",
+  "homepage": "https://github.com/<USERNAME>/seed-element/",
+  "ignore": [
+    "**/.*"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.3.3",
+    "polymer-test-tools": "Polymer/polymer-test-tools#~0.3.3",
+    "google-map": "https://github.com/PolymerLabs/google-map"
+  }
+}
